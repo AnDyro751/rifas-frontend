@@ -1,0 +1,139 @@
+{
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "plugin:react/recommended",
+    "next"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "react/no-this-in-sfc": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "jsx-a11y/no-noninteractive-tabindex": "off",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    "react/no-array-index-key": "off",
+    "operator-linebreak": "off",
+    "array-callback-return": "off",
+    "arrow-body-style": "off",
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "radix": "off",
+    "import/no-cycle": "off",
+    "new-cap": "off",
+    "no-throw-literal": "off",
+    "no-constructor-return": "off",
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowCallExpression": true,
+        // The true value here is for backward compatibility
+        "allowLiteral": false,
+        "allowObject": false
+      }
+    ],
+    "class-methods-use-this": "off",
+    "default-param-last": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "camelcase": "off",
+    "no-return-await": "off",
+    "no-async-promise-executor": "off",
+    "react/jsx-no-bind": "off",
+    "no-shadow": "off",
+    "no-promise-executor-return": "off",
+    "react/default-props-match-prop-types": [
+      "error",
+      {
+        "allowRequiredDefaults": true
+      }
+    ],
+    "object-curly-newline": "off",
+    "import/extensions": [
+      "error",
+      "never"
+    ],
+    "object-curly-spacing": [
+      "warn",
+      "never"
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        "beforeSelfClosing": "allow"
+      }
+    ],
+    "no-unused-vars": [
+      "error"
+    ],
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/forbid-prop-types": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "comma-dangle": "off",
+    "max-len": [
+      "warn",
+      {
+        "ignoreComments": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreStrings": true,
+        "ignoreUrls": true,
+        "ignoreTrailingComments": true,
+        "code": 200
+      }
+    ],
+    "eol-last": "off"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  }
+}
