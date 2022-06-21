@@ -12,18 +12,21 @@ const ShowRafflePresentation = ({ raffle }) => {
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(true)
   const [pagination, setPagination] = useState({ total_pages: 1, current_page: 1 })
+  const [selectedTickets, setSelectedTickets] = useState([])
 
   useEffect(async () => {
-    await makeRequest()
+    await makeRequest(1, false)
     setLoading(false)
   }, [])
 
-  const makeRequest = async (page) => {
+  const makeRequest = async (page, shallow = true) => {
     router.query.page = page || router.query.page || 1
-    router.push({
-      pathname: router.pathname,
-      query: router.query
-    }, {}, { shallow: true })
+    if (shallow) {
+      router.push({
+        pathname: router.pathname,
+        query: router.query
+      }, {}, { shallow: true })
+    }
     const ticketsResponse = await new RafflesNetwork().get_tickets({
       slug: router.query.slug,
       query: router.query
@@ -39,10 +42,13 @@ const ShowRafflePresentation = ({ raffle }) => {
 
   const onHandleClick = (ticket) => {
     toast.success(`Boleto #${ticket.attributes?.number} seleccionado`)
+    setSelectedTickets([...selectedTickets, ticket])
   }
+
   const currentPage = () => {
     return parseInt((router.query.page || 1))
   }
+
   const onHandleNext = async () => {
     const newPage = currentPage() + 1
     await makeRequest(newPage)
@@ -59,8 +65,32 @@ const ShowRafflePresentation = ({ raffle }) => {
     await makeRequest(1)
     toast.success('Mostrando nuevos boletos')
   }
+
+  const onHandleRemove = (ticket) => {
+    setSelectedTickets([...selectedTickets.filter((el) => el.id !== ticket.id)])
+    toast.error('Boleto eliminado')
+  }
+
   return (
     <section>
+      {
+        selectedTickets.length > 0 && (
+          <section className="fixed bottom-0 px-10 py-4 bg-red-200 w-full">
+            Boletos seleccionados: {selectedTickets.length}
+            <div className="flex">
+              {selectedTickets.map((ticket, i) => (
+                <RaffleTicketItem
+                  handleRemove={() => onHandleRemove(ticket)}
+                  ticket={ticket}
+                  key={i}
+                  removed
+                  isSelected={selectedTickets.find((el) => el.id === ticket.id)}
+                />
+              ))}
+            </div>
+          </section>
+        )
+      }
       <h1>{raffleItem.title}</h1>
       {
         loading && (
@@ -70,6 +100,7 @@ const ShowRafflePresentation = ({ raffle }) => {
       {
         !loading && (
           <>
+
             <section className="flex justify-center mb-10">
               <RafflePagination
                 handleReset={onHandleReset}
@@ -85,8 +116,10 @@ const ShowRafflePresentation = ({ raffle }) => {
                 tickets.map((ticket, i) => (
                   <RaffleTicketItem
                     ticket={ticket}
+                    handleRemove={() => onHandleRemove(ticket)}
                     handleClick={() => onHandleClick(ticket)}
                     key={i}
+                    isSelected={selectedTickets.find((el) => el.id === ticket.id)}
                   />
                 ))
               }
