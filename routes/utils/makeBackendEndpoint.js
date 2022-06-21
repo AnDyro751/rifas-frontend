@@ -9,8 +9,13 @@ export const joinApiInternalUrl = (path) => {
   return `${API_BASE}/${path}`
 }
 
-export const makeBackendEndpoint = (path, query) => {
-  const url = new URL(joinUrls(API_ENDPOINT(), joinApiInternalUrl(path)))
+export const makeBackendEndpoint = (path, query, internal = true) => {
+  let url = '';
+  if(internal){
+    url = new URL(joinUrls(API_ENDPOINT(), joinApiInternalUrl(path)))
+  }else{
+    url = new URL(joinUrls(API_ENDPOINT(), path))
+  }
   if (query) {
     Object.entries(query)
       .map((item) => {

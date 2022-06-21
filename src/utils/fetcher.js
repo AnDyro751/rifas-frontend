@@ -17,8 +17,8 @@ const fetcher = async ({
       errors: fetchResponse.errors,
       data: fetchResponse.data || null,
       pagination: {
-        total_pages: fetchResponse?.total_pages,
-        current_page: fetchResponse?.current_page
+        total_pages: fetchResponse?.total_pages || 1,
+        current_page: fetchResponse?.current_page || 1
       }
     }
   } catch (e) {
