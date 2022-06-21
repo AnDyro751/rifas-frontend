@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import RaffleTicketItem from './ticket'
 import RafflePagination from './pagination'
 import { toast } from 'react-hot-toast'
+import SelectedItems from './selected_items'
 
 const ShowRafflePresentation = ({ raffle }) => {
   const raffleItem = new RaffleSerializer(raffle)
@@ -75,20 +76,11 @@ const ShowRafflePresentation = ({ raffle }) => {
     <section>
       {
         selectedTickets.length > 0 && (
-          <section className="fixed bottom-0 px-10 py-4 bg-red-200 w-full">
-            Boletos seleccionados: {selectedTickets.length}
-            <div className="flex">
-              {selectedTickets.map((ticket, i) => (
-                <RaffleTicketItem
-                  handleRemove={() => onHandleRemove(ticket)}
-                  ticket={ticket}
-                  key={i}
-                  removed
-                  isSelected={selectedTickets.find((el) => el.id === ticket.id)}
-                />
-              ))}
-            </div>
-          </section>
+          <SelectedItems
+            raffle={raffle}
+            selectedTickets={selectedTickets}
+            onHandleRemove={onHandleRemove}
+          />
         )
       }
       <h1>{raffleItem.title}</h1>
