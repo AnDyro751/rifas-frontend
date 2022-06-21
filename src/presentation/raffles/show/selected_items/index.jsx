@@ -1,33 +1,10 @@
 import RaffleTicketItem from '../ticket'
 import RaffleSerializer from '../../../../serializers/raffle'
+import calculatePrice from './calculatePrice'
 
 const SelectedItems = ({ selectedTickets, onHandleRemove, raffle }) => {
-  console.log(raffle, 'RAFFLEI')
   const raffleSerialized = new RaffleSerializer(raffle)
-  const getPrice = () => {
-    const lengthItems = selectedTickets.length
-    let value = raffleSerialized.one_ticket_price
-    if (lengthItems === 1) {
-      value = raffleSerialized.one_ticket_price
-    } else if (lengthItems >= 5 && lengthItems < 10) {
-      value = raffleSerialized.five_tickets_price
-    } else if (lengthItems >= 10 && lengthItems < 20) {
-      value = raffleSerialized.ten_tickets_price
-    } else if (lengthItems >= 20 && lengthItems < 50) {
-      value = raffleSerialized.twenty_tickets_price
-    } else if (lengthItems >= 50 && lengthItems < 100) {
-      value = raffleSerialized.fifty_tickets_price
-    } else if (lengthItems >= 100) {
-      value = raffleSerialized.hundred_tickets_price
-    } else {
-      value = raffleSerialized.one_ticket_price
-    }
-    return value
-  }
-  const calculatePrice = () => {
-    console.log(getPrice(), 'JA')
-    return getPrice() * selectedTickets.length
-  }
+
   return (
     <section className="fixed bottom-0 px-12 py-4 bg-white w-full shadow-2xl">
       <div className="mb-2">
@@ -52,7 +29,7 @@ const SelectedItems = ({ selectedTickets, onHandleRemove, raffle }) => {
             <button className="btn btn-primary w-full">Apartar {selectedTickets.length} boletos</button>
           </div>
           <div className="w-full mt-2 text-center">
-            <p className="font-bold">${calculatePrice()} MXN</p>
+            <p className="font-bold">${calculatePrice(selectedTickets, raffleSerialized)} MXN</p>
           </div>
         </div>
       </div>
