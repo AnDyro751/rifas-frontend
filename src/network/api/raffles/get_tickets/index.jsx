@@ -1,11 +1,10 @@
 import fetcher from '../../../../utils/fetcher'
 import RafflesBackendRoutes from '../../../../../routes/backend/raffles_routes'
 
-const apiGetAll = async ({ token }) => {
+const apiGetTickets = async ({ token, slug, query }) => {
   return await fetcher({
-    url: new RafflesBackendRoutes().get_all(),
+    url: new RafflesBackendRoutes().get_tickets(slug, query),
     headers: { token }
   })
 }
-
-export default apiGetAll
+export default apiGetTickets

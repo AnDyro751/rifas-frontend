@@ -10,7 +10,9 @@ export default function App ({
     <>
       <SessionProvider session={session}>
         <Component {...pageProps} />
-        <Toaster/>
+        <Toaster
+          position="top-right"
+        />
       </SessionProvider>
     </>
   )

@@ -16,6 +16,7 @@ const fetcher = async ({
       response: fetchResponse,
       errors: fetchResponse.errors,
       data: fetchResponse.data || null,
+      included: fetchResponse.included || null,
       pagination: {
         total_pages: fetchResponse?.total_pages || 1,
         current_page: fetchResponse?.current_page || 1
