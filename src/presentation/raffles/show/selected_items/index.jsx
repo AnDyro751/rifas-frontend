@@ -1,9 +1,8 @@
 import RaffleTicketItem from '../ticket'
-import RaffleSerializer from '../../../../serializers/raffle'
-import calculatePrice from './calculatePrice'
+import RaffleModalCreate from '../modal_create'
 
 const SelectedItems = ({ selectedTickets, onHandleRemove, raffle }) => {
-  const raffleSerialized = new RaffleSerializer(raffle)
+
 
   return (
     <section className="fixed bottom-0 px-12 py-4 bg-white w-full shadow-2xl">
@@ -24,14 +23,11 @@ const SelectedItems = ({ selectedTickets, onHandleRemove, raffle }) => {
             />
           ))}
         </div>
-        <div className="w-2/12 flex flex-wrap justify-end">
-          <div className="w-full">
-            <button className="btn btn-primary w-full">Apartar {selectedTickets.length} boletos</button>
-          </div>
-          <div className="w-full mt-2 text-center">
-            <p className="font-bold">${calculatePrice(selectedTickets, raffleSerialized)} MXN</p>
-          </div>
-        </div>
+        <RaffleModalCreate
+          visible={false}
+          selectedTickets={selectedTickets}
+          raffle={raffle}
+        />
       </div>
     </section>
   )

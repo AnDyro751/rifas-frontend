@@ -13,7 +13,9 @@ const MainLayout = ({ children }) => {
           <a>Verificar ticket</a>
         </Link>
       </header>
-      {children}
+      <main className="w-full flex justify-center">
+        {children}
+      </main>
     </div>
   )
 
