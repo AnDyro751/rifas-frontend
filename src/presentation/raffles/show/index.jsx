@@ -6,6 +6,7 @@ import RaffleTicketItem from './ticket'
 import RafflePagination from './pagination'
 import { toast } from 'react-hot-toast'
 import SelectedItems from './selected_items'
+import RaffleBanner from '../banner'
 
 const ShowRafflePresentation = ({ raffle }) => {
   const raffleItem = new RaffleSerializer(raffle)
@@ -73,7 +74,8 @@ const ShowRafflePresentation = ({ raffle }) => {
   }
 
   return (
-    <section>
+    <section className="w-full" >
+      <RaffleBanner raffle={raffle} with_link={true}/>
       {
         selectedTickets.length > 0 && (
           <SelectedItems
@@ -91,8 +93,7 @@ const ShowRafflePresentation = ({ raffle }) => {
       }
       {
         !loading && (
-          <>
-
+          <div id="tickets">
             <section className="flex justify-center mb-10">
               <RafflePagination
                 handleReset={onHandleReset}
@@ -125,7 +126,7 @@ const ShowRafflePresentation = ({ raffle }) => {
                 raffle={raffle}
               />
             </section>
-          </>
+          </div>
         )
       }
     </section>

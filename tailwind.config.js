@@ -5,7 +5,12 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '256': '64rem'
+      }
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {

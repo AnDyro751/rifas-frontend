@@ -12,5 +12,6 @@ export default class RaffleSerializer {
     this.twenty_tickets_price = raffle.attributes?.twenty_tickets_price
     this.fifty_tickets_price = raffle.attributes?.fifty_tickets_price
     this.hundred_tickets_price = raffle.attributes?.hundred_tickets_price
+    this.cover_urls = raffle.attributes?.cover_urls || []
   }
 }
