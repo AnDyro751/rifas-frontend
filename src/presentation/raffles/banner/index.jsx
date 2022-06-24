@@ -4,7 +4,7 @@ import makeImageUrl from '../../../utils/makeImageUrl'
 import Link from 'next/link'
 
 const RaffleBanner = ({ raffle, with_link = false }) => {
-  const raffleSerialized = new RaffleSerializer(raffle)
+  const raffleSerialized = raffle.constructor.name === 'RaffleSerializer' ? raffle : new RaffleSerializer(raffle)
   return (
     <div class="hero py-10 bg-base-200 max-w-full">
       <div class="hero-content max-w-full px-8 py-4 w-full m-0 overflow-x-hidden flex-col lg:flex-row-reverse">
@@ -33,7 +33,13 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
           </div>
         </div>
         <div>
-          <h1 class="text-5xl font-bold">{raffleSerialized.title}</h1>
+          <h1 class="text-5xl font-bold">
+            <Link href={`/rifas/${raffleSerialized.id}`}>
+              <a className="hover:underline" >
+                {raffleSerialized.title}
+              </a>
+            </Link>
+          </h1>
           {
             raffleSerialized.description && (
               <p class="py-6">{raffleSerialized.description}</p>

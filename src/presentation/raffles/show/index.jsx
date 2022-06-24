@@ -75,7 +75,7 @@ const ShowRafflePresentation = ({ raffle }) => {
 
   return (
     <section className="w-full" >
-      <RaffleBanner raffle={raffle} with_link={true}/>
+      <RaffleBanner raffle={raffle} with_link={false}/>
       {
         selectedTickets.length > 0 && (
           <SelectedItems

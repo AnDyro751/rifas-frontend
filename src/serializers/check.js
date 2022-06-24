@@ -1,3 +1,5 @@
+import RaffleSerializer from './raffle'
+
 class CheckSerializer {
 
   constructor (check = {}, include = []) {
@@ -6,6 +8,7 @@ class CheckSerializer {
     this.deleted = check.attributes?.deleted || false
     this.payed = check.attributes?.payed || false
     this.tickets = include.filter((el) => el.type === 'ticket') || []
+    this.raffle = new RaffleSerializer(include.find((el) => el.type === 'raffle'))
   }
 
 }
