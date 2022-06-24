@@ -6,8 +6,8 @@ import Link from 'next/link'
 const RaffleBanner = ({ raffle, with_link = false }) => {
   const raffleSerialized = raffle.constructor.name === 'RaffleSerializer' ? raffle : new RaffleSerializer(raffle)
   return (
-    <div class="hero py-10 bg-base-200 max-w-full">
-      <div class="hero-content max-w-full px-8 py-4 w-full m-0 overflow-x-hidden flex-col lg:flex-row-reverse">
+    <div className="hero py-10 bg-base-200 max-w-full">
+      <div className="hero-content max-w-full px-8 py-4 w-full m-0 overflow-x-hidden flex-col lg:flex-row-reverse">
         <div className="w-7/12 flex justify-center">
           <div className="h-128 rounded-none w-full carousel-center carousel rounded-box space-x-8 pr-4">
             {
@@ -33,7 +33,7 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
           </div>
         </div>
         <div>
-          <h1 class="text-5xl font-bold">
+          <h1 className="text-5xl font-bold">
             <Link href={`/rifas/${raffleSerialized.id}`}>
               <a className="hover:underline" >
                 {raffleSerialized.title}
@@ -42,7 +42,7 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
           </h1>
           {
             raffleSerialized.description && (
-              <p class="py-6">{raffleSerialized.description}</p>
+              <p className="py-6">{raffleSerialized.description}</p>
             )
           }
           {

@@ -30,14 +30,14 @@ const AlertComponent = ({ center = false, type = 'success', message = '' }) => {
   }
 
   const alertClass = classNames({
-    'alert shadow-lg w-full inline-flex': true,
+    'alert shadow-lg w-full inline-flex w-auto': true,
     'alert-success': type === 'success',
     'alert-warning': type !== 'success',
     'flex justify-center': center
   })
 
   return (
-    <div class={alertClass}>
+    <div className={alertClass}>
       <div>
         {icon()}
         <span>

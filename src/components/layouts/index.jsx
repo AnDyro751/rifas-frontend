@@ -1,18 +1,11 @@
 import Link from 'next/link'
+import Header from '../header'
 
 const MainLayout = ({ children }) => {
 
   return (
     <div>
-      <header>
-        <Link href="/rifas">
-          <a>Rifas</a>
-        </Link>
-
-        <Link href="/verificar-ticket">
-          <a>Verificar ticket</a>
-        </Link>
-      </header>
+      <Header />
       <main className="w-full flex justify-center">
         {children}
       </main>
