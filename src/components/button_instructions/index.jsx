@@ -62,7 +62,7 @@ const ButtonInstructions = ({ check, children, id = 'instructions' }) => {
             )
           }
 
-          <div class="divider"/>
+          <div className="divider"/>
           {
             paymentMethods.map((payment, i) => (
               <div key={i}>
@@ -72,7 +72,7 @@ const ButtonInstructions = ({ check, children, id = 'instructions' }) => {
                 <p>
                   {payment['value']}
                 </p>
-                <div class="divider"/>
+                <div className="divider"/>
               </div>
             ))
           }
@@ -90,7 +90,7 @@ const ButtonInstructions = ({ check, children, id = 'instructions' }) => {
               src="data:image/png;base64,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"/>
           </a>
 
-          <div class="divider">O</div>
+          <div className="divider">O</div>
           <Link href={`/comprobante?check_id=${checkSerialized.id}`}>
             <a className="btn btn-ghost w-full">
               Subir comprobante desde mi dispositivo

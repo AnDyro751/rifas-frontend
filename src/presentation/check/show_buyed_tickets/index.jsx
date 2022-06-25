@@ -7,7 +7,7 @@ const ShowBuyedTickets = ({ check, include }) => {
   const checkSerialized = new CheckSerializer(check, include)
 
   const alertMessage = () => {
-    if (!checkSerialized.payed) {
+    if (checkSerialized.payed) {
       return 'Boleto pagado. ¡Ya tienes asegurado tu lugar en la rifa!'
     }
     return 'Aún no has pagado tu boleto 😰. '
@@ -23,13 +23,17 @@ const ShowBuyedTickets = ({ check, include }) => {
           <div className="w-6/12 flex justify-end">
             <AlertComponent
               message={alertMessage()}
-              type={!checkSerialized.payed ? 'success' : 'danger'}
+              type={checkSerialized.payed ? 'success' : 'danger'}
             >
-              <ButtonInstructions check={check}>
-                <label htmlFor="instructions" className="btn btn-sm btn-primary">
-                  Instrucciones de pago aquí
-                </label>
-              </ButtonInstructions>
+              {
+                !checkSerialized.payed && (
+                  <ButtonInstructions check={check}>
+                    <label htmlFor="instructions" className="btn btn-sm btn-primary">
+                      Instrucciones de pago aquí
+                    </label>
+                  </ButtonInstructions>
+                )
+              }
             </AlertComponent>
           </div>
         </div>
