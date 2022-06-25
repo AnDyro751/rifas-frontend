@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import ButtonInstructions from '../button_instructions'
+
 const Header = () => {
   return (
     <header className="navbar bg-base-100 px-12">
@@ -20,6 +22,11 @@ const Header = () => {
             Consultar boleto
           </a>
         </Link>
+        <ButtonInstructions id="instructions_header">
+          <label htmlFor="instructions_header" className="btn btn-ghost text-gray-700">
+            Instrucciones de pago
+          </label>
+        </ButtonInstructions>
         {/*<Link href="/">*/}
         <a
           target="_blank"

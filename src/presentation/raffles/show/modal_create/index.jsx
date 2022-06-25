@@ -20,7 +20,8 @@ const RaffleModalCreate = ({ selectedTickets = [], raffle }) => {
   }
 
   const modalClass = classNames({
-    'modal': true, 'modal-open': open
+    'modal': true,
+    'modal-open': open
   })
 
   const schema = yup.object()

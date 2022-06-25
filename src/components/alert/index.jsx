@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 
-const AlertComponent = ({ center = false, type = 'success', message = '' }) => {
+const AlertComponent = ({ center = false, type = 'success', message = '', children }) => {
 
   const icon = () => {
     if (type === 'success') {
@@ -43,6 +43,11 @@ const AlertComponent = ({ center = false, type = 'success', message = '' }) => {
         <span>
           {message}
         </span>
+      </div>
+      <div className="flex-none">
+        {
+          children && children
+        }
       </div>
     </div>
   )
