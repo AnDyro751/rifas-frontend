@@ -18,7 +18,6 @@ export async function getServerSideProps ({ req, query }) {
   const check = await new ChecksNetwork().get({
     slug: query.slug
   })
-  console.log("CHECK", check)
   return {
     props: {
       check: check.data,

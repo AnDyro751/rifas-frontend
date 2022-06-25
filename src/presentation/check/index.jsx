@@ -1,7 +1,5 @@
 import CheckSerializer from '../../serializers/check'
-import RaffleTicketItem from '../raffles/show/ticket'
 import RaffleBanner from '../raffles/banner'
-import AlertComponent from '../../components/alert'
 import ShowBuyedTickets from './show_buyed_tickets'
 import CountDownComponent from '../../components/count_down'
 
@@ -25,11 +23,27 @@ const CheckPresentation = ({ check, include }) => {
       </div>
 
 
-      <section className="flex justify-center w-full">
-        <div className="w-10/12" >
-          <CountDownComponent
-            time={new Date(checkSerialized.raffle.departure_date).getTime()}
-          />
+      <section className="flex justify-center">
+        <div className="w-10/12 flex items-center">
+          <div className="flex justify-center w-6/12">
+            <div className="w-full">
+              <CountDownComponent
+                time={new Date(checkSerialized.raffle.departure_date).getTime()}
+              />
+            </div>
+          </div>
+          <div className="flex justify-end w-6/12">
+            <div className="w-full flex justify-end">
+              <div className="stats shadow">
+                <div className="stat place-items-center">
+                  <div className="stat-title">
+                    {checkSerialized.payed ? 'Total pagado' : 'Total a pagar'}
+                  </div>
+                  <div className="stat-value mt-1">{checkSerialized.payment_quantity} MXN</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

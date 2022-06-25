@@ -155,6 +155,12 @@ const ShowRafflePresentation = ({ raffle }) => {
           />
         </div>
       </section>
+
+      <section className="w-full flex justify-center my-12">
+        <div className="w-11/12" >
+          <ShowTicketsPricing raffle={raffle}/>
+        </div>
+      </section>
     </section>
   )
 

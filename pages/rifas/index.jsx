@@ -14,7 +14,6 @@ const IndexRafflesPage = ({ raffles }) => {
 export async function getServerSideProps ({ req }) {
   const session = await getSession({ req })
   const raffles = await new RafflesNetwork().get_all(session.accessToken)
-  console.log(raffles, 'RAFLES')
   return {
     props: {
       raffles: raffles.data

@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import Header from '../header'
+import Footer from '../footer'
 
 const MainLayout = ({ children }) => {
 
@@ -9,6 +9,7 @@ const MainLayout = ({ children }) => {
       <main className="w-full flex justify-center">
         {children}
       </main>
+      <Footer />
     </div>
   )
 
