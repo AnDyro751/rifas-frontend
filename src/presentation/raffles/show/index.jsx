@@ -7,6 +7,7 @@ import RafflePagination from './pagination'
 import { toast } from 'react-hot-toast'
 import SelectedItems from './selected_items'
 import RaffleBanner from '../banner'
+import CountDownComponent from '../../../components/count_down'
 
 const ShowRafflePresentation = ({ raffle }) => {
   const raffleItem = new RaffleSerializer(raffle)
@@ -74,8 +75,16 @@ const ShowRafflePresentation = ({ raffle }) => {
   }
 
   return (
-    <section className="w-full" >
+    <section className="w-full">
       <RaffleBanner raffle={raffle} with_link={false}/>
+      <section className="w-full my-12 flex justify-center" >
+        <div className="w-6/12 inline-flex" >
+          <CountDownComponent
+            center
+            time={new Date(raffleItem.departure_date).getTime()}
+          />
+        </div>
+      </section>
       {
         selectedTickets.length > 0 && (
           <SelectedItems
@@ -85,7 +94,6 @@ const ShowRafflePresentation = ({ raffle }) => {
           />
         )
       }
-      <h1>{raffleItem.title}</h1>
       {
         loading && (
           <div>Cargando...</div>
@@ -129,6 +137,14 @@ const ShowRafflePresentation = ({ raffle }) => {
           </div>
         )
       }
+      <section className="w-full my-12 flex justify-center" >
+        <div className="w-6/12 inline-flex" >
+          <CountDownComponent
+            center
+            time={new Date(raffleItem.departure_date).getTime()}
+          />
+        </div>
+      </section>
     </section>
   )
 

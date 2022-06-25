@@ -3,6 +3,7 @@ import RaffleTicketItem from '../raffles/show/ticket'
 import RaffleBanner from '../raffles/banner'
 import AlertComponent from '../../components/alert'
 import ShowBuyedTickets from './show_buyed_tickets'
+import CountDownComponent from '../../components/count_down'
 
 const CheckPresentation = ({ check, include }) => {
 
@@ -17,9 +18,20 @@ const CheckPresentation = ({ check, include }) => {
   return (
     <section className="py-10 w-full">
       <div className="w-full mb-4">
-        <ShowBuyedTickets check={check} include={include}/>
+        <ShowBuyedTickets
+          check={check}
+          include={include}
+        />
       </div>
 
+
+      <section className="flex justify-center w-full">
+        <div className="w-10/12" >
+          <CountDownComponent
+            time={new Date(checkSerialized.raffle.departure_date).getTime()}
+          />
+        </div>
+      </section>
 
       <section className="w-full flex justify-center mt-12 mb-16">
         <div className="w-10/12">
