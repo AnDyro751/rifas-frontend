@@ -3,6 +3,8 @@ const getPrice = (selectedTickets, raffleSerialized) => {
   let value = raffleSerialized.one_ticket_price
   if (lengthItems === 1) {
     value = raffleSerialized.one_ticket_price
+  } else if (lengthItems >= 2 && lengthItems < 5) {
+    value = raffleSerialized.two_tickets_price
   } else if (lengthItems >= 5 && lengthItems < 10) {
     value = raffleSerialized.five_tickets_price
   } else if (lengthItems >= 10 && lengthItems < 20) {

@@ -8,6 +8,7 @@ import { toast } from 'react-hot-toast'
 import SelectedItems from './selected_items'
 import RaffleBanner from '../banner'
 import CountDownComponent from '../../../components/count_down'
+import ShowTicketsPricing from '../../../components/show_tickets_pricing'
 
 const ShowRafflePresentation = ({ raffle }) => {
   const raffleItem = new RaffleSerializer(raffle)
@@ -77,14 +78,23 @@ const ShowRafflePresentation = ({ raffle }) => {
   return (
     <section className="w-full">
       <RaffleBanner raffle={raffle} with_link={false}/>
-      <section className="w-full my-12 flex justify-center" >
-        <div className="w-6/12 inline-flex" >
+
+      <section className="w-full flex justify-center my-12">
+        <div className="w-11/12" >
+          <ShowTicketsPricing raffle={raffle}/>
+        </div>
+      </section>
+
+      <section className="w-full my-12 flex justify-center">
+        <div className="w-6/12 inline-flex">
           <CountDownComponent
             center
             time={new Date(raffleItem.departure_date).getTime()}
           />
         </div>
       </section>
+
+
       {
         selectedTickets.length > 0 && (
           <SelectedItems
@@ -137,8 +147,8 @@ const ShowRafflePresentation = ({ raffle }) => {
           </div>
         )
       }
-      <section className="w-full my-12 flex justify-center" >
-        <div className="w-6/12 inline-flex" >
+      <section className="w-full my-12 flex justify-center">
+        <div className="w-6/12 inline-flex">
           <CountDownComponent
             center
             time={new Date(raffleItem.departure_date).getTime()}
