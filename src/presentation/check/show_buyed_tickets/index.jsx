@@ -15,12 +15,12 @@ const ShowBuyedTickets = ({ check, include }) => {
 
   return (
     <section className="w-full flex justify-center flex-wrap">
-      <div className="w-10/12">
+      <div className="w-11/12 md:w-10/12">
         <div className="w-full items-center flex flex-wrap">
-          <div className="w-6/12">
+          <div className="w-full md:w-6/12">
             <h1 className="font-bold text-3xl">Ticket #{checkSerialized.id}</h1>
           </div>
-          <div className="w-6/12 flex justify-end">
+          <div className="w-full md:w-6/12 flex justify-end md:mt-0 mt-4">
             <AlertComponent
               message={alertMessage()}
               type={checkSerialized.payed ? 'success' : 'danger'}
@@ -37,8 +37,8 @@ const ShowBuyedTickets = ({ check, include }) => {
             </AlertComponent>
           </div>
         </div>
-        <h2 className="mt-4">Boletos seleccionados:</h2>
-        <div className="flex w-full flex-wrap -ml-4 mt-4">
+        <h2 className="mt-8 md:mt-4 font-bold">Boletos seleccionados:</h2>
+        <div className="flex w-full flex-wrap md:-ml-4 mt-4">
           {
             checkSerialized.tickets.map((ticket, i) => (
               <RaffleTicketItem

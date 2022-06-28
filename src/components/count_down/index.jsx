@@ -12,7 +12,7 @@ const CountDownComponent = ({ time, center }) => {
       return (
         <div className={`w-full ${center ? "text-center" : ""}`}>
           <h3 className="text-3xl font-bold my-8">Esta rifa finaliza en:</h3>
-          <div className="stats shadow flex">
+          <div className="stats shadow flex border-2 border-gray-500">
             <div className="stat place-items-center p-2 md:px-0">
               <div className="stat-title text-sm md:text-base">Días</div>
               <div className="stat-value text-4xl mt-2">{days}</div>

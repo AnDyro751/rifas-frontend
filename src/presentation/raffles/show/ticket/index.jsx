@@ -5,7 +5,7 @@ const RaffleTicketItem = ({ ticket, handleClick, handleRemove, removed = false, 
   const [selected, setSelected] = useState(isSelected)
   const taken = ticket.attributes?.taken
   const itemClass = classNames({
-    'px-2 w-12 h-12 items-center flex justify-center rounded text-center mb-2 ml-4': true,
+    'px-2 w-12 h-12 items-center flex justify-center rounded text-center mb-2 mr-2': true,
     'bg-black text-white cursor-pointer': !taken,
     'bg-gray-500 text-gray-600 select-none cursor-not-allowed': taken && !selected,
     'bg-green-600 text-white shadow-lg cursor-pointer': selected

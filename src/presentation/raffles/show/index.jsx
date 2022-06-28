@@ -126,7 +126,7 @@ const ShowRafflePresentation = ({ raffle }) => {
               />
             </section>
             <div
-              className="py-8 px-8 bg-base-300 flex flex-wrap">
+              className="py-8 px-0 md:px-8 bg-base-300 flex flex-wrap justify-center">
               {
                 tickets.map((ticket, i) => (
                   <RaffleTicketItem

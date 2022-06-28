@@ -20,7 +20,7 @@ const RaffleModalCreate = ({ selectedTickets = [], raffle }) => {
   }
 
   const modalClass = classNames({
-    'modal': true,
+    'modal w-full': true,
     'modal-open': open
   })
 
@@ -129,7 +129,7 @@ const RaffleModalCreate = ({ selectedTickets = [], raffle }) => {
           </div>
         </div>
       </form>
-      <div className="w-2/12 flex flex-wrap justify-end">
+      <div className="w-6/12 md:w-2/12 flex flex-wrap justify-end">
         <div className="w-full">
           <button
             onClick={() => {

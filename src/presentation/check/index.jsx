@@ -24,17 +24,17 @@ const CheckPresentation = ({ check, include }) => {
 
 
       <section className="flex justify-center">
-        <div className="w-10/12 flex items-center">
-          <div className="flex justify-center w-6/12">
+        <div className="w-11/12 md:w-10/12 flex items-center md:flex-nowrap flex-wrap justify-between">
+          <div className="flex justify-center w-full md:w-6/12">
             <div className="w-full">
               <CountDownComponent
                 time={new Date(checkSerialized.raffle.departure_date).getTime()}
               />
             </div>
           </div>
-          <div className="flex justify-end w-6/12">
+          <div className="flex justify-end w-full mt-8 border-t-gray-500 border-t-2 md:w-2/12">
             <div className="w-full flex justify-end">
-              <div className="stats shadow">
+              <div className="stats shadow w-full">
                 <div className="stat place-items-center">
                   <div className="stat-title">
                     {checkSerialized.payed ? 'Total pagado' : 'Total a pagar'}
@@ -47,9 +47,9 @@ const CheckPresentation = ({ check, include }) => {
         </div>
       </section>
 
-      <section className="w-full flex justify-center mt-12 mb-16">
-        <div className="w-10/12">
-          <h3 className="text-4xl font-bold uppercase">
+      <section className="w-full flex justify-center mt-12 md:mb-16 mb-8">
+        <div className="w-11/12 md:w-10/12">
+          <h3 className="text-2xl md:text-4xl font-bold uppercase">
             Premios de esta rifa
           </h3>
         </div>

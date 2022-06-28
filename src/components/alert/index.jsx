@@ -30,7 +30,7 @@ const AlertComponent = ({ center = false, type = 'success', message = '', childr
   }
 
   const alertClass = classNames({
-    'alert shadow-lg w-full inline-flex w-auto': true,
+    'alert shadow-lg inline-flex w-full md:w-auto': true,
     'alert-success': type === 'success',
     'alert-warning': type !== 'success',
     'flex justify-center': center

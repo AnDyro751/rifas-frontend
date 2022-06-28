@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="text-white bg-gradient-to-r from-primary to-secondary mt-12 md:mt-28">
       <div className="max-w-screen-xl px-4 pt-12 md:pt-32 pb-8 md:pb-12 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-3xl md:text-4xl font-extrabold sm:text-6xl">
+          <p className="text-3xl md:text-5xl font-extrabold sm:text-6xl">
             ¡ARRIESGA POCO Y GANA MUCHO!
           </p>
 
