@@ -7,13 +7,13 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
   return (
     <div className="hero py-10 bg-base-200 max-w-full">
       <div className="hero-content max-w-full px-8 py-4 w-full m-0 overflow-x-hidden flex-col lg:flex-row-reverse">
-        <div className="w-7/12 flex justify-center">
-          <div className="h-128 rounded-none w-full carousel-center carousel rounded-box space-x-8 pr-4">
+        <div className="w-full md:w-7/12 flex justify-center">
+          <div className="h-60 md:h-128 rounded-none w-full carousel-center carousel rounded-box space-x-4 md:space-x-8 pr-4">
             {
               raffleSerialized.cover_urls.map((image, i) => (
                 <div
                   key={i}
-                  className="relative w-128 h-full carousel-item"
+                  className="relative w-60 h-full carousel-item"
                 >
                   <Image
                     loading="lazy"
@@ -32,7 +32,7 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
           </div>
         </div>
         <div>
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-2xl md:text-5xl mt-4 md:mt-0 font-bold">
             <Link href={`/rifas/${raffleSerialized.id}`}>
               <a className="hover:underline" >
                 {raffleSerialized.title}
@@ -47,7 +47,7 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
           {
             with_link ? (
                 <Link href={`/rifas/${raffleSerialized.id}`}>
-                  <a className="btn btn-primary mt-6">Comprar boletos</a>
+                  <a className="btn btn-primary mt-6 md:w-auto w-full">Comprar boletos</a>
                 </Link>
               )
               :

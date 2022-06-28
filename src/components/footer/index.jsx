@@ -2,10 +2,10 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-gradient-to-r from-primary to-secondary mt-28">
-      <div className="max-w-screen-xl px-4 pt-32 pb-12 mx-auto sm:px-6 lg:px-8">
+    <footer className="text-white bg-gradient-to-r from-primary to-secondary mt-12 md:mt-28">
+      <div className="max-w-screen-xl px-4 pt-12 md:pt-32 pb-8 md:pb-12 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-4xl font-extrabold sm:text-6xl">
+          <p className="text-3xl md:text-4xl font-extrabold sm:text-6xl">
             ¡ARRIESGA POCO Y GANA MUCHO!
           </p>
 
@@ -18,23 +18,23 @@ const Footer = () => {
           </Link>
         </div>
 
-        <div className="pt-12 mt-32 border-t border-white/25 sm:items-center sm:justify-between sm:flex">
-          <nav className="flex justify-center space-x-4 text-sm font-medium sm:justify-start">
+        <div className="pt-12 mt-12 md:mt-32 border-t border-white/25 sm:items-center sm:justify-between sm:flex">
+          <nav className="flex justify-center space-x-4 text-sm font-medium sm:justify-start flex-wrap">
             <Link href="/">
-              <a className="hover:opacity-75 p-1"> Inicio </a>
+              <a className="hover:opacity-75 p-1 mt-2"> Inicio </a>
             </Link>
 
             <Link href="/rifas">
-              <a className="hover:opacity-75 p-1"> Rifas </a>
+              <a className="hover:opacity-75 p-1 mt-2"> Rifas </a>
             </Link>
             <Link href="/b">
-              <a className="hover:opacity-75 p-1"> Consultar boleto </a>
+              <a className="hover:opacity-75 p-1 mt-2"> Consultar boleto </a>
             </Link>
             <a
               target="_blank"
               rel="noreferrer"
               href={`https://wa.me/${process.env.NEXT_PUBLIC_PHONE_CONTACT}?text=Hola`}
-              className="p-1 hover:opacity-75">
+              className="p-1 hover:opacity-75 mt-2">
               Contacto
             </a>
           </nav>
