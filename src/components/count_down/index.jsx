@@ -3,6 +3,7 @@ import Countdown from 'react-countdown'
 const CountDownComponent = ({ time, center }) => {
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
+
     if (completed) {
       // Render a completed state
       return <h1>Esta rifa ya fue completada</h1>
@@ -11,26 +12,25 @@ const CountDownComponent = ({ time, center }) => {
       return (
         <div className={`w-full ${center ? "text-center" : ""}`}>
           <h3 className="text-3xl font-bold my-8">Esta rifa finaliza en:</h3>
-          <div className="stats shadow">
-
-            <div className="stat place-items-center">
-              <div className="stat-title">Días</div>
-              <div className="stat-value">{days}</div>
+          <div className="stats shadow flex">
+            <div className="stat place-items-center p-2 md:px-0">
+              <div className="stat-title text-sm md:text-base">Días</div>
+              <div className="stat-value text-4xl mt-2">{days}</div>
             </div>
 
-            <div className="stat place-items-center">
-              <div className="stat-title">Horas</div>
-              <div className="stat-value">{hours}</div>
+            <div className="stat place-items-center p-2 md:px-0">
+              <div className="stat-title text-sm md:text-base">Horas</div>
+              <div className="stat-value mt-2">{hours}</div>
             </div>
 
-            <div className="stat place-items-center">
-              <div className="stat-title">Minutos</div>
-              <div className="stat-value text-secondary">{minutes}</div>
+            <div className="stat place-items-center p-2 md:px-0">
+              <div className="stat-title text-sm md:text-base">Minutos</div>
+              <div className="stat-value text-secondary mt-2">{minutes}</div>
             </div>
 
-            <div className="stat place-items-center">
-              <div className="stat-title">Segundos</div>
-              <div className="stat-value">{seconds}</div>
+            <div className="stat place-items-center p-2 md:px-0">
+              <div className="stat-title text-sm md:text-base">Segundos</div>
+              <div className="stat-value mt-2">{seconds}</div>
             </div>
           </div>
         </div>

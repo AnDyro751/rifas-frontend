@@ -90,7 +90,7 @@ const ShowRafflePresentation = ({ raffle }) => {
       </section>
 
       <section className="w-full my-12 flex justify-center">
-        <div className="w-6/12 inline-flex">
+        <div className="w-11/12 md:w-6/12 inline-flex">
           <CountDownComponent
             center
             time={new Date(raffleItem.departure_date).getTime()}
@@ -152,7 +152,7 @@ const ShowRafflePresentation = ({ raffle }) => {
         )
       }
       <section className="w-full my-12 flex justify-center">
-        <div className="w-6/12 inline-flex">
+        <div className="w-11/12 md:w-6/12 inline-flex">
           <CountDownComponent
             center
             time={new Date(raffleItem.departure_date).getTime()}
