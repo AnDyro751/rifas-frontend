@@ -1,9 +1,21 @@
 import Link from 'next/link'
 import ButtonInstructions from '../button_instructions'
+import OffCanvasMenu from './off_canvas'
+import { useState } from 'react'
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleClick = () => {
+    setOpen(!open)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
-    <header className="navbar bg-base-100 px-12">
+    <header className="navbar bg-base-100 px-2 md:px-12">
       <div className="flex-1">
         <Link href="/">
           <a className="btn btn-ghost normal-case text-xl">
@@ -11,7 +23,22 @@ const Header = () => {
           </a>
         </Link>
       </div>
-      <div className="flex space-x-4">
+      <div className="flex md:hidden">
+        <button
+          onClick={handleClick}
+          className="btn btn-square btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+               className="inline-block w-5 h-5 stroke-current">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <OffCanvasMenu
+        handleClose={handleClose}
+        open={open}
+      />
+      <div className="space-x-4 hidden md:flex">
         <Link href="/rifas">
           <a className="btn btn-ghost text-gray-700">
             Rifas
