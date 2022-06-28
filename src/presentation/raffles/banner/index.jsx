@@ -52,7 +52,7 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
               )
               :
               (
-                <a href="#tickets" className="btn btn-primary mt-6 w-full">Comprar boletos</a>
+                <a href="#tickets" className="btn btn-primary mt-6 md:w-auto w-full">Comprar boletos</a>
               )
           }
         </div>
