@@ -53,8 +53,8 @@ const CheckPresentation = () => {
     <section
       className="w-full flex justify-center"
     >
-      <div className="w-4/12">
-        <h1 className="text-3xl font-bold my-12">Consulta el status de tu boleto</h1>
+      <div className="w-10/12 md:w-4/12">
+        <h1 className="text-2xl md:text-3xl font-bold my-8 md:my-12">Consulta el estado de tu boleto</h1>
 
         <form
           onSubmit={onSubmit}
@@ -76,7 +76,7 @@ const CheckPresentation = () => {
             <button
               disabled={loading || error}
               type="submit"
-              className={`btn btn-primary ${loading ? 'loading' : ''}`}
+              className={`w-full md:w-auto btn btn-primary ${loading ? 'loading' : ''}`}
             >
               Consultar boleto
             </button>
