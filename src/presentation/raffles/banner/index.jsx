@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import RaffleSerializer from '../../../serializers/raffle'
-import makeImageUrl from '../../../utils/makeImageUrl'
 import Link from 'next/link'
 
 const RaffleBanner = ({ raffle, with_link = false }) => {
@@ -24,8 +23,8 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
                     objectPosition="center"
                     objectFit="cover"
                     placeholder="blur"
-                    blurDataURL={makeImageUrl(image['thumb'])}
-                    src={makeImageUrl(image['hero'])}
+                    blurDataURL={image['thumb']}
+                    src={image['hero']}
                   />
                 </div>
               ))
@@ -48,12 +47,12 @@ const RaffleBanner = ({ raffle, with_link = false }) => {
           {
             with_link ? (
                 <Link href={`/rifas/${raffleSerialized.id}`}>
-                  <a className="btn btn-primary">Comprar boletos</a>
+                  <a className="btn btn-primary mt-6">Comprar boletos</a>
                 </Link>
               )
               :
               (
-                <a href="#tickets" className="btn btn-primary">Comprar boletos</a>
+                <a href="#tickets" className="btn btn-primary mt-6">Comprar boletos</a>
               )
           }
         </div>

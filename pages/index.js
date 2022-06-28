@@ -19,7 +19,7 @@ export default function Home ({ raffle = {} }) {
 
 export async function getServerSideProps ({ req }) {
   const raffle = await new RafflesNetwork().get({
-    slug: '1'
+    slug: process.env.NEXT_PUBLIC_RAFFLE
   })
 
   return {
