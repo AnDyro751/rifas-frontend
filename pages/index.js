@@ -1,20 +1,31 @@
-import Head from 'next/head'
-import { useSession } from 'next-auth/react'
+import RafflesNetwork from '../src/network/api/raffles'
+import MainLayout from '../src/components/layouts'
+import RaffleBanner from '../src/presentation/raffles/banner'
+import HowToSelectWinners from '../src/components/how_to_select_winners'
 
-export default function Home () {
-  const { data: session } = useSession()
+export default function Home ({ raffle = {} }) {
+
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico"/>
-      </Head>
-
-      <main>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      </main>
-    </div>
+    <MainLayout>
+      <section className="w-full" >
+        <HowToSelectWinners />
+      </section>
+      <div className="w-full flex space-y-8 flex-wrap">
+        <RaffleBanner raffle={raffle} with_link={true}/>
+      </div>
+    </MainLayout>
   )
 }
+
+export async function getServerSideProps ({ req }) {
+  const raffle = await new RafflesNetwork().get({
+    slug: '2'
+  })
+
+  return {
+    props: {
+      raffle: raffle.data
+    },
+  }
+}
+

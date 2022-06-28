@@ -1,8 +1,8 @@
 import { makeBackendEndpoint } from '../utils/makeBackendEndpoint'
 
 class RafflesBackendRoutes {
-  get_all () {
-    return makeBackendEndpoint('raffles', {}, false)
+  get_all (query) {
+    return makeBackendEndpoint('raffles', query, false)
   }
   get(slug){
     return makeBackendEndpoint(`raffles/${slug}`, {}, false)

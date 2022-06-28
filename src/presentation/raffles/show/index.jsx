@@ -19,8 +19,12 @@ const ShowRafflePresentation = ({ raffle }) => {
   const [selectedTickets, setSelectedTickets] = useState([])
 
   useEffect(async () => {
-    await makeRequest(1, false)
+
+    if (router.query.slug) {
+      await makeRequest(1, false)
+    }
     setLoading(false)
+
   }, [])
 
   const makeRequest = async (page, shallow = true) => {
@@ -80,7 +84,7 @@ const ShowRafflePresentation = ({ raffle }) => {
       <RaffleBanner raffle={raffle} with_link={false}/>
 
       <section className="w-full flex justify-center my-12">
-        <div className="w-11/12" >
+        <div className="w-11/12">
           <ShowTicketsPricing raffle={raffle}/>
         </div>
       </section>
@@ -157,7 +161,7 @@ const ShowRafflePresentation = ({ raffle }) => {
       </section>
 
       <section className="w-full flex justify-center my-12">
-        <div className="w-11/12" >
+        <div className="w-11/12">
           <ShowTicketsPricing raffle={raffle}/>
         </div>
       </section>

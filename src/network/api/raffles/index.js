@@ -3,8 +3,11 @@ import apiGet from './get'
 import apiGetTickets from './get_tickets'
 
 class RafflesNetwork {
-  async get_all (token) {
-    return await apiGetAll({ token })
+  async get_all (token= '', query = {}) {
+    return await apiGetAll({
+      token,
+      query
+    })
   }
 
   async get ({ token = '', slug }) {

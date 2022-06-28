@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <main className="w-full flex justify-center">
+      <main className="w-full flex justify-center flex-wrap">
         {children}
       </main>
       <Footer />

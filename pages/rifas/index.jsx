@@ -1,5 +1,4 @@
 import RafflesNetwork from '../../src/network/api/raffles'
-import { getSession } from 'next-auth/react'
 import RafflesPresentation from '../../src/presentation/raffles'
 import MainLayout from '../../src/components/layouts'
 
@@ -12,8 +11,7 @@ const IndexRafflesPage = ({ raffles }) => {
 }
 
 export async function getServerSideProps ({ req }) {
-  const session = await getSession({ req })
-  const raffles = await new RafflesNetwork().get_all(session.accessToken)
+  const raffles = await new RafflesNetwork().get_all()
   return {
     props: {
       raffles: raffles.data
